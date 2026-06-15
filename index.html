@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PR WEB STUDIO — Diseño Web Premium para Negocios Exigentes</title>
+<meta name="description" content="Estudio de diseño web premium en Chile. Creamos sitios web profesionales con identidad única, velocidad, SEO y accesibilidad. Transformamos tu negocio en una experiencia digital inolvidable.">
+<meta name="keywords" content="diseño web, desarrollo web, estudio web, diseño web premium, páginas web profesionales, diseño web Chile, desarrollo web Santiago, diseño UX/UI, página web negocio, estudio creativo web">
+<meta name="author" content="PR WEB STUDIO">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://webstudiopr2-maker.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://prwebstudio.cl/">
+<meta property="og:title" content="PR WEB STUDIO — Diseño Web Premium">
+<meta property="og:description" content="Creamos sitios web profesionales con identidad única, velocidad, SEO y accesibilidad. Transformamos tu negocio en una experiencia digital inolvidable.">
+<meta property="og:site_name" content="PR WEB STUDIO">
+<meta property="og:locale" content="es_CL">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PR WEB STUDIO — Diseño Web Premium">
+<meta name="twitter:description" content="Creamos sitios web profesionales con identidad única, velocidad, SEO y accesibilidad.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='4' y='24' font-family='monospace' font-weight='700' font-size='20' fill='%23fff'%3EPR%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='4' y='24' font-family='monospace' font-weight='700' font-size='20' fill='%23fff'%3EPR%3C/text%3E%3C/svg%3E">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PR WEB STUDIO",
+  "url": "https://prwebstudio.cl/",
+  "description": "Estudio de diseño web premium en Chile. Especialistas en sitios web profesionales con identidad única.",
+  "email": "webstudiopr2@gmail.com",
+  "telephone": "+56942130189",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Chile"
+  },
+  "sameAs": [
+    "https://wa.me/56942130189"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/motion@12.4.3/dist/motion.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--font:'Iosevka Charon',monospace;--bg:#000;--fg:#fff;--fs:100%}
+html{scroll-behavior:smooth;font-size:var(--fs)}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button,a{cursor:pointer;transition:all 300ms cubic-bezier(0.22,1,0.36,1)}
+
+/* accessibility */
+.access-btn{position:fixed;bottom:2.5rem;left:2.5rem;z-index:200;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);color:var(--fg);display:flex;align-items:center;justify-content:center;transition:all 300ms;opacity:0.5}
+.access-btn:hover{opacity:1;border-color:rgba(255,255,255,0.5)}
+.access-btn svg{width:24px;height:24px}
+.access-panel{position:fixed;bottom:calc(2.5rem + 64px);left:2.5rem;z-index:200;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);padding:1.5rem;width:260px;display:none;flex-direction:column;gap:0.75rem}
+.access-panel.open{display:flex}
+.access-panel h4{font-size:0.65rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;opacity:0.3;margin-bottom:0}
+.access-row{display:flex;gap:0.75rem;align-items:center}
+.access-row button{flex:1;padding:0.6rem 0;border:1px solid rgba(255,255,255,0.15);background:transparent;color:var(--fg);font-family:var(--font);font-size:0.75rem;font-weight:300;opacity:0.55;transition:all 300ms}
+.access-row button:hover{opacity:1;border-color:rgba(255,255,255,0.35)}
+.access-row button.active{border-color:rgba(255,255,255,0.5);opacity:0.9}
+.access-reset{display:block;width:100%;padding:0.65rem 0;border:1px solid rgba(255,255,255,0.08);background:transparent;color:var(--fg);font-family:var(--font);font-size:0.6rem;font-weight:300;opacity:0.25;margin-top:0.25rem;transition:all 300ms}
+.access-reset:hover{opacity:0.6}
+
+/* light mode */
+body.access-light{--bg:#F5F0EB;--fg:#1A1A1A}
+body.access-light .hero-grid>div{background:#F5F0EB;background-image:linear-gradient(to right,rgba(0,0,0,0.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,0.05) 1px,transparent 1px)}
+body.access-light .hr{background:rgba(0,0,0,0.08)}
+body.access-light nav.scrolled{background:var(--bg);border-bottom-color:rgba(0,0,0,0.08);mix-blend-mode:normal}
+body.access-light nav:not(.scrolled){mix-blend-mode:normal;color:var(--fg)}
+body.access-light .s-border{background:rgba(0,0,0,0.07)}
+body.access-light .p-circle{border-color:rgba(0,0,0,0.2);color:var(--fg)}
+body.access-light .p-circle.filled{background:var(--fg);color:var(--bg)}
+body.access-light .dl-card{border-color:rgba(0,0,0,0.08)}
+body.access-light .dl-img img{filter:brightness(1)}
+body.access-light .access-btn{background:rgba(255,255,255,0.9);border-color:rgba(0,0,0,0.15);opacity:0.6}
+body.access-light .access-btn:hover{opacity:1}
+body.access-light .access-panel{background:rgba(255,255,255,0.95);border-color:rgba(0,0,0,0.1)}
+body.access-light .access-row button{border-color:rgba(0,0,0,0.12);color:var(--fg)}
+body.access-light .access-row button:hover{border-color:rgba(0,0,0,0.3)}
+body.access-light .access-row button.active{border-color:rgba(0,0,0,0.4)}
+body.access-light .access-reset{border-color:rgba(0,0,0,0.08);color:var(--fg)}
+body.access-light .scroll-ind{opacity:0.3}
+body.access-light .hero-grid::after{background:radial-gradient(circle at 50% 30%,rgba(0,0,0,0.02) 0%,transparent 70%)}
+body.access-light footer p{opacity:0.5;color:var(--fg)}
+body.access-light .cta-trust{opacity:0.4}
+body.access-light .btn-anchor{opacity:0.4}
+body.access-light .tagline{opacity:0.5}
+body.access-light .hero-sub{opacity:0.6}
+body.access-light nav:not(.scrolled) .nav-cta{opacity:0.6}
+body.access-light .cta-email{opacity:0.6}
+
+/* hero grid bg — 21st.dev, solo en hero */
+.hero-grid{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-grid>div{position:absolute;inset:0;background:#000;background-image:linear-gradient(to right,rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:60px 60px}
+.hero-grid::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,0.02) 0%,transparent 70%);pointer-events:none}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;transition:all 300ms ease;mix-blend-mode:difference}
+nav.scrolled{background:#000;border-bottom:1px solid rgba(255,255,255,0.08);mix-blend-mode:normal}
+.logo{display:flex;align-items:baseline;gap:0.15em;user-select:none}
+.logo-pr{font-size:1.75rem;font-weight:700;letter-spacing:-0.03em;transition:transform 300ms ease}
+.logo-studio{font-size:0.8rem;font-weight:300;letter-spacing:0.08em;opacity:0.5}
+.logo:hover .logo-pr{transform:scale(1.02)}
+.nav-cta{font-size:0.8rem;font-weight:300;opacity:0.4;transition:opacity 300ms ease}
+.nav-cta:hover{opacity:0.8}
+
+/* scroll indicator */
+.scroll-ind{position:fixed;bottom:2.5rem;right:2.5rem;z-index:50;display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0.2;animation:scPulse 3s ease-in-out infinite}
+.scroll-ind-line{width:1px;flex:1;min-height:40px;background:var(--fg)}
+.scroll-ind-text{font-size:0.55rem;letter-spacing:0.15em;writing-mode:vertical-rl;text-orientation:mixed}
+@keyframes scPulse{0%,100%{opacity:0.12}50%{opacity:0.3}}
+
+/* sections */
+section{position:relative;z-index:1}
+.max-w{width:100%;max-width:1280px;margin:0 auto;padding:0 2rem}
+.max-w-narrow{max-width:800px;margin:0 auto}
+.max-w-tight{max-width:640px;margin:0 auto}
+
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:30vh 0 6rem}
+.tagline{font-weight:300;font-size:0.8rem;opacity:0.35;letter-spacing:0.06em;margin-bottom:2.5rem}
+.hero-title{font-weight:200;font-size:clamp(3rem,8vw,7rem);line-height:0.88;letter-spacing:-0.03em;margin-bottom:2.5rem}
+.hero-sub{max-width:540px;font-weight:300;opacity:0.45;line-height:1.6;margin-bottom:3.5rem;font-size:0.95rem}
+.btn{border:1px solid var(--fg);background:transparent;color:var(--fg);font-family:var(--font);font-size:0.85rem;font-weight:300;padding:1rem 2rem;display:inline-flex;align-items:center;gap:0.75rem;transition:all 300ms cubic-bezier(0.22,1,0.36,1)}
+.btn:hover{background:var(--fg);color:var(--bg)}
+.btn-anchor{display:block;font-size:0.65rem;opacity:0.25;margin-top:1rem;font-weight:300}
+
+/* manifesto */
+.manifesto{padding:12rem 0}
+.manifesto h2{font-weight:200;font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;margin-bottom:3.5rem}
+.manifesto p{font-weight:300;opacity:0.45;line-height:1.7;max-width:680px}
+.manifesto p+p{margin-top:2rem}
+
+/* divider */
+.hr{width:100%;height:1px;background:rgba(255,255,255,0.1);margin:0 auto}
+
+/* services */
+.services{padding:12rem 0}
+.prehead{font-weight:300;font-size:0.7rem;opacity:0.35;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem}
+.s-h2{font-weight:200;font-size:clamp(2rem,4vw,3rem);line-height:0.95;margin-bottom:6rem}
+.s-grid{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr}
+.s-col{padding:0 3rem}
+.s-col:first-child{padding-left:0}
+.s-col:last-child{padding-right:0}
+.s-num{font-size:5rem;font-weight:100;opacity:0.1;line-height:1;margin-bottom:1.25rem;user-select:none}
+.s-title{font-size:1.2rem;font-weight:400;margin-bottom:1rem}
+.s-desc{font-size:0.85rem;font-weight:300;opacity:0.4;line-height:1.6;max-width:300px}
+.s-border{width:1px;background:rgba(255,255,255,0.08);transition:opacity 300ms ease}
+.s-border:hover{opacity:0.35}
+
+/* design lab */
+.designlab{padding:12rem 0}
+.dl-h2{font-weight:200;font-size:clamp(2rem,4vw,3rem);line-height:0.95;margin-bottom:1rem}
+.dl-sub{font-weight:300;font-size:0.85rem;opacity:0.35;line-height:1.5;margin-bottom:4rem;max-width:500px}
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.dl-card{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,0.08);overflow:hidden;transition:border-color 400ms,transform 400ms;position:relative;background:transparent}
+.dl-card:hover{border-color:rgba(255,255,255,0.3);transform:translateY(-2px)}
+.dl-img{width:100%;aspect-ratio:16/10;overflow:hidden}
+.dl-img img{width:100%;height:100%;object-fit:cover;transition:transform 500ms;filter:brightness(0.8)}
+.dl-card:hover .dl-img img{transform:scale(1.04);filter:brightness(1)}
+.dl-info{padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.3rem}
+.dl-tag{font-size:0.55rem;font-weight:300;opacity:0.25;letter-spacing:0.1em}
+.dl-title{font-weight:400;font-size:0.9rem;letter-spacing:-0.01em}
+.dl-desc{font-weight:300;font-size:0.65rem;opacity:0.35;line-height:1.4}
+
+/* process */
+.process{padding:12rem 0}
+.p-h2{font-weight:200;font-size:clamp(2rem,4vw,3rem);line-height:0.95;margin-bottom:1rem}
+.p-head-gap{margin-bottom:10rem}
+.p-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.p-step{display:flex;flex-direction:column;align-items:flex-start;gap:1rem;position:relative}
+.p-circle{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:0.8rem;opacity:0.5;font-weight:300;position:relative;z-index:2;background:transparent;transition:background 500ms ease,border-color 500ms ease,opacity 500ms ease}
+.p-circle.filled{background:var(--fg);color:var(--bg);border-color:var(--fg);opacity:1}
+.p-step-title{font-weight:400;font-size:1rem}
+.p-step-desc{font-weight:300;font-size:0.8rem;opacity:0.4;line-height:1.5;max-width:220px}
+.p-conn{position:absolute;top:18px;left:36px;right:0;height:1px;background:rgba(255,255,255,0.08);z-index:1}
+.p-step:last-child .p-conn{display:none}
+
+/* cta */
+.cta{padding:12rem 0;text-align:center}
+.cta h2{font-weight:200;font-size:clamp(2.5rem,5vw,4rem);line-height:0.95;margin-bottom:1.5rem}
+.cta-sub{opacity:0.4;font-weight:300;max-width:460px;margin:0 auto 3rem;line-height:1.6}
+.cta-trust{font-size:0.65rem;opacity:0.22;margin-top:1rem;font-weight:300}
+.cta-email{display:inline-block;margin-top:2.5rem;font-size:1.1rem;font-weight:300;opacity:0.45;transition:opacity 300ms ease;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:0.15em}
+.cta-email:hover{opacity:0.8;border-color:rgba(255,255,255,0.4)}
+
+/* footer */
+footer{padding:4rem 0;text-align:center}
+footer .hr{max-width:1280px;margin:0 auto 4rem}
+footer p{font-size:0.6rem;line-height:2;opacity:0.22;font-weight:300}
+footer .fn{font-size:0.7rem;opacity:0.25}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 600ms cubic-bezier(0.22,1,0.36,1),transform 600ms cubic-bezier(0.22,1,0.36,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+
+@media(prefers-reduced-motion:reduce){
+.rv{opacity:1;transform:none;transition:none}
+.scroll-ind{animation:none}
+.logo:hover .logo-pr{transform:none}
+}
+
+/* responsive */
+@media(max-width:1024px){
+.dl-grid{grid-template-columns:repeat(2,1fr)}
+.s-grid{grid-template-columns:1fr}
+.s-border{display:none}
+.s-col{padding:2.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.s-col:last-child{border-bottom:none}
+.s-desc{max-width:100%}
+.p-steps{grid-template-columns:repeat(2,1fr);gap:3rem 2.5rem}
+.p-conn{display:none}
+.p-step-desc{max-width:100%}
+}
+
+@media(max-width:768px){
+nav{padding:1rem 1.5rem}
+.max-w,.max-w-narrow,.max-w-tight{padding:0 1.5rem}
+.hero{padding:25vh 0 4rem}
+.hero-title{font-size:clamp(2.5rem,10vw,4rem)}
+.manifesto{padding:8rem 0}
+.designlab{padding:8rem 0}
+.dl-h2{margin-bottom:4rem}
+.services{padding:8rem 0}
+.s-h2{margin-bottom:4rem}
+.process{padding:8rem 0}
+.p-head-gap{margin-bottom:6rem}
+.cta{padding:8rem 0}
+.scroll-ind{display:none}
+.access-btn{bottom:1.5rem;left:1.5rem;width:48px;height:48px}
+.access-panel{bottom:calc(1.5rem + 60px);left:1.5rem}
+}
+
+@media(max-width:560px){
+nav{padding:0.75rem 1.25rem}
+.logo-pr{font-size:1.4rem}
+.logo-studio{font-size:0.7rem}
+.nav-cta{font-size:0.7rem}
+.max-w,.max-w-narrow,.max-w-tight{padding:0 1.25rem}
+.hero{padding:20vh 0 3rem}
+.hero-title{font-size:clamp(2rem,12vw,3rem)}
+.hero-sub{font-size:0.85rem}
+.tagline{font-size:0.7rem}
+.manifesto{padding:6rem 0}
+.manifesto h2{font-size:clamp(1.5rem,6vw,2rem)}
+.designlab{padding:6rem 0}
+.dl-grid{grid-template-columns:1fr;max-width:400px}
+.services{padding:6rem 0}
+.process{padding:6rem 0}
+.cta{padding:6rem 0}
+.cta h2{font-size:clamp(2rem,8vw,2.5rem)}
+.p-steps{grid-template-columns:1fr;gap:2rem}
+.btn{width:100%;justify-content:center}
+}
+
+@media(max-width:480px){
+nav{padding:0.75rem 1rem}
+.max-w,.max-w-narrow,.max-w-tight{padding:0 1rem}
+.hero-title{font-size:clamp(1.75rem,10vw,2.5rem)}
+.tagline{font-size:0.65rem}
+.hero-sub{font-size:0.8rem}
+.designlab{padding:5rem 0}
+.s-num{font-size:3.5rem}
+}
+
+@media(max-width:400px){
+.hero-title{font-size:clamp(1.5rem,9vw,2rem)}
+.s-h2{font-size:clamp(1.5rem,6vw,2rem)}
+.p-h2{font-size:clamp(1.5rem,6vw,2rem)}
+.cta h2{font-size:clamp(1.5rem,7vw,2rem)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <span class="logo-pr">PR</span>
+    <span class="logo-studio">WEB STUDIO</span>
+  </a>
+  <a href="https://wa.me/56942130189" target="_blank" rel="noopener" class="nav-cta">WhatsApp</a>
+</nav>
+
+<!-- SCROLL INDICATOR -->
+<div class="scroll-ind" aria-hidden="true">
+  <div class="scroll-ind-line"></div>
+  <span class="scroll-ind-text">DESCUBRE</span>
+</div>
+
+<!-- ACCESSIBILITY -->
+<div class="access-btn" id="accessBtn" role="button" tabindex="0" aria-label="Accesibilidad" title="Accesibilidad">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/><path d="M7 12h3l1 8h2l1-8h3"/><path d="M5.5 9.5c1.5-1 4-1.5 6.5-1.5s5 .5 6.5 1.5"/></svg>
+</div>
+<div class="access-panel" id="accessPanel">
+  <h4>Tamaño</h4>
+  <div class="access-row">
+    <button data-action="fs-down" title="Reducir texto">A−</button>
+    <button data-action="fs-reset" title="Restablecer texto">A·</button>
+    <button data-action="fs-up" title="Aumentar texto">A+</button>
+  </div>
+  <h4>Modo</h4>
+  <div class="access-row">
+    <button data-action="light" title="Modo claro" id="lightBtn">☀︎</button>
+  </div>
+  <button class="access-reset" data-action="reset">Restablecer todo</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="position:relative;overflow:hidden">
+  <div class="hero-grid"><div></div></div>
+  <div class="max-w" style="position:relative;z-index:1">
+    <p class="tagline rv">ESTUDIO DE DISEÑO WEB</p>
+    <h1 class="hero-title rv">
+      Diseño Web Premium<br>
+      Para Negocios<br>
+      Que Exigen Más
+    </h1>
+    <p class="hero-sub rv">
+Cada píxel está donde debe estar. Landing pages con
+identidad, código limpio y propósito estético.
+Cero plantillas. Cero relleno. Diseño que comunica con autoridad.
+    </p>
+    <div class="rv">
+      <a href="https://wa.me/56942130189?text=Hola%20PR%20WEB%20STUDIO%2C%20quiero%20escalar%20mi%20negocio" target="_blank" rel="noopener" class="btn">
+        ¿Listo para escalar tu negocio? Hablemos →
+      </a>
+      <span class="btn-anchor">Sin compromiso. Respuesta en menos de 24 horas.</span>
+    </div>
+  </div>
+</section>
+
+<div class="hr max-w"></div>
+
+<!-- MANIFIESTO -->
+<section class="manifesto">
+  <div class="max-w-narrow">
+    <h2 class="rv">El diseño no es decoración.<br>Es estrategia.</h2>
+    <p class="rv">
+      Cada píxel que colocamos tiene un propósito: guiar al usuario
+      hacia una acción. Cada línea de código está optimizada para
+      velocidad, SEO y accesibilidad desde el primer segundo.
+    </p>
+    <p class="rv">
+      No usamos plantillas. No reutilizamos proyectos anteriores.
+      Cada landing page es un sistema construido desde cero para
+      un objetivo específico: transformar visitantes en clientes.
+    </p>
+  </div>
+</section>
+
+<div class="hr max-w"></div>
+
+<!-- DESIGN LAB -->
+<section class="designlab">
+  <div class="max-w">
+    <p class="prehead rv">LABORATORIO</p>
+    <h2 class="dl-h2 rv">Design Lab.<br>Exploración visual sin límites.</h2>
+    <p class="dl-sub rv">Ejemplos de páginas diseñadas y maquetadas desde cero. Cada una con identidad, paleta y arquitectura propias.</p>
+    <div class="dl-grid">
+      <a href="design-lab/cafe-indie.html" class="dl-card rv" target="_blank">
+        <div class="dl-img"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80" alt="café de la tierra" loading="lazy"></div>
+        <div class="dl-info">
+          <span class="dl-tag">01</span>
+          <span class="dl-title">café de la tierra</span>
+          <span class="dl-desc">Café de especialidad con carácter de barrio</span>
+        </div>
+      </a>
+      <a href="design-lab/arquitectura.html" class="dl-card rv" target="_blank">
+        <div class="dl-img"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="ESTUDIO ARQ" loading="lazy"></div>
+        <div class="dl-info">
+          <span class="dl-tag">02</span>
+          <span class="dl-title">ESTUDIO ARQ</span>
+          <span class="dl-desc">Arquitectura contemporánea y metodología precisa</span>
+        </div>
+      </a>
+      <a href="design-lab/arte-crudo.html" class="dl-card rv" target="_blank">
+        <div class="dl-img"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80" alt="COLECTIVO CRUDO" loading="lazy"></div>
+        <div class="dl-info">
+          <span class="dl-tag">03</span>
+          <span class="dl-title">COLECTIVO CRUDO</span>
+          <span class="dl-desc">Arte contemporáneo brutalista</span>
+        </div>
+      </a>
+      <a href="design-lab/fineza.html" class="dl-card rv" target="_blank">
+        <div class="dl-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Fineza" loading="lazy"></div>
+        <div class="dl-info">
+          <span class="dl-tag">04</span>
+          <span class="dl-title">Fineza</span>
+          <span class="dl-desc">Fintech personal — todo en un solo lugar</span>
+        </div>
+      </a>
+      <a href="design-lab/miranda-montenegro.html" class="dl-card rv" target="_blank">
+        <div class="dl-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Miranda & Montenegro" loading="lazy"></div>
+        <div class="dl-info">
+          <span class="dl-tag">05</span>
+          <span class="dl-title">Miranda & Montenegro</span>
+          <span class="dl-desc">Firma legal corporativa de alto perfil</span>
+        </div>
+      </a>
+      <a href="design-lab/brown-rivera.html" class="dl-card rv" target="_blank">
+        <div class="dl-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Brown & Rivera" loading="lazy"></div>
+        <div class="dl-info">
+          <span class="dl-tag">06</span>
+          <span class="dl-title">Brown & Rivera</span>
+          <span class="dl-desc">Real Estate de lujo — Quiet Luxury</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="hr max-w"></div>
+
+<!-- SERVICIOS -->
+<section class="services">
+  <div class="max-w">
+    <p class="prehead rv">CAPACIDADES</p>
+    <h2 class="s-h2 rv">Tres pilares.<br>Un objetivo: crecer.</h2>
+    <div class="s-grid">
+      <div class="s-col rv">
+        <div class="s-num">01</div>
+        <h3 class="s-title">Diseño Web Estratégico</h3>
+        <p class="s-desc">
+          Investigamos tu mercado, tu competencia y tu audiencia antes
+          de dibujar un solo píxel. Cada decisión visual responde a una
+          necesidad real de conversión.
+        </p>
+      </div>
+      <div class="s-border"></div>
+      <div class="s-col rv">
+        <div class="s-num">02</div>
+        <h3 class="s-title">Desarrollo a Medida</h3>
+        <p class="s-desc">
+          Código limpio, semántico y optimizado. Sin constructores
+          visuales, sin plugins pesados, sin dependencias innecesarias.
+          Tu landing page carga en menos de 2 segundos.
+        </p>
+      </div>
+      <div class="s-border"></div>
+      <div class="s-col rv">
+        <div class="s-num">03</div>
+        <h3 class="s-title">Optimización de Conversión</h3>
+        <p class="s-desc">
+          No lanzamos y nos olvidamos. Monitoreamos métricas,
+          ajustamos embudos y refinamos cada elemento para maximizar
+          tu retorno de inversión.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr max-w"></div>
+
+<!-- PROCESO -->
+<section class="process">
+  <div class="max-w">
+    <p class="prehead rv">METODOLOGÍA</p>
+    <h2 class="p-h2 rv">De la idea al deploy.<br>Sin rodeos.</h2>
+    <div class="p-head-gap"></div>
+    <div class="p-steps">
+      <div class="p-step rv">
+        <div class="p-circle" data-step="1">01</div>
+        <div class="p-conn"></div>
+        <h3 class="p-step-title">Diagnóstico</h3>
+        <p class="p-step-desc">Analizamos tu negocio, tu audiencia y tus objetivos para definir una estrategia de diseño clara.</p>
+      </div>
+      <div class="p-step rv">
+        <div class="p-circle" data-step="2">02</div>
+        <div class="p-conn"></div>
+        <h3 class="p-step-title">Diseño</h3>
+        <p class="p-step-desc">Creamos la arquitectura visual y de contenido. Cada sección está pensada para guiar al usuario hacia la conversión.</p>
+      </div>
+      <div class="p-step rv">
+        <div class="p-circle" data-step="3">03</div>
+        <div class="p-conn"></div>
+        <h3 class="p-step-title">Desarrollo</h3>
+        <p class="p-step-desc">Escribimos código limpio y optimizado. Sin atajos. Tu landing page funciona perfecto en cualquier dispositivo.</p>
+      </div>
+      <div class="p-step rv">
+        <div class="p-circle" data-step="4">04</div>
+        <div class="p-conn"></div>
+        <h3 class="p-step-title">Despliegue</h3>
+        <p class="p-step-desc">Publicamos, monitoreamos y ajustamos. Te entregamos una máquina de conversión lista para escalar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr max-w"></div>
+
+<!-- CTA FINAL -->
+<section class="cta">
+  <div class="max-w-tight">
+    <h2 class="rv">¿Listo para tener<br>una landing page<br>que realmente funcione?</h2>
+    <p class="cta-sub rv">
+      Agenda una llamada sin compromiso. Descubre cómo podemos
+      transformar tu presencia digital con diseño estratégico.
+    </p>
+    <div class="rv">
+      <a href="https://wa.me/56942130189?text=Hola%20PR%20WEB%20STUDIO%2C%20quiero%20agendar%20una%20llamada%20gratuita" target="_blank" rel="noopener" class="btn">
+        Agendar llamada gratuita →
+      </a>
+    </div>
+    <p class="cta-trust rv">Respuesta en menos de 24 horas · Sin compromiso · Presupuesto transparente</p>
+    <a href="mailto:webstudiopr2@gmail.com" class="cta-email rv">webstudiopr2@gmail.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="hr"></div>
+  <div class="max-w">
+    <p class="fn">PR WEB STUDIO — Diseño Web Premium</p>
+    <p><a href="mailto:webstudiopr2@gmail.com" style="transition:opacity 300ms" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">webstudiopr2@gmail.com</a></p>
+    <p>© 2026 PR WEB STUDIO. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+const { animate, scroll, inView } = Motion;
+
+scroll(({ y }) => {
+  document.getElementById('nav').classList.toggle('scrolled', y > 80);
+});
+
+const rvs = document.querySelectorAll('.rv');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      const delay = parseInt(e.target.dataset.d) || 0;
+      setTimeout(() => e.target.classList.add('in'), delay * 120);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+rvs.forEach((el, i) => { el.dataset.d = i % 5; obs.observe(el); });
+
+const circles = document.querySelectorAll('.p-circle');
+const cobs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('filled');
+      cobs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+circles.forEach(c => cobs.observe(c));
+
+/* accessibility */
+const accessBtn = document.getElementById('accessBtn');
+const accessPanel = document.getElementById('accessPanel');
+let fs = 100;
+
+accessBtn.addEventListener('click', () => accessPanel.classList.toggle('open'));
+
+document.addEventListener('click', (e) => {
+  if (!accessBtn.contains(e.target) && !accessPanel.contains(e.target)) {
+    accessPanel.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.access-row button, .access-reset').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const a = btn.dataset.action;
+    if (a === 'fs-up') { fs = Math.min(fs + 10, 140); document.documentElement.style.fontSize = fs + '%'; }
+    else if (a === 'fs-down') { fs = Math.max(fs - 10, 70); document.documentElement.style.fontSize = fs + '%'; }
+    else if (a === 'fs-reset') { fs = 100; document.documentElement.style.fontSize = ''; }
+    else if (a === 'light') { document.body.classList.toggle('access-light'); btn.classList.toggle('active'); btn.textContent = document.body.classList.contains('access-light') ? '☾' : '☀︎'; }
+    else if (a === 'reset') {
+      fs = 100; document.documentElement.style.fontSize = '';
+      document.body.classList.remove('access-light');
+      const lb = document.getElementById('lightBtn');
+      if (lb) { lb.classList.remove('active'); lb.textContent = '☀︎'; }
+    }
+  });
+});
+</script>
+</body>
+</html>

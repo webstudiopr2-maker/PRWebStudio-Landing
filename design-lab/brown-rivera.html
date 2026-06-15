@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brown & Rivera · Recepción Privada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#120E0C;--card:#1A1614;--card2:#26211E;--gold:#C5A059;--text:#F4F4F4;--text-m:#8A7E73;--text-dim:#5A5048;--serif:'Playfair Display',serif;--sans:'Plus Jakarta Sans',sans-serif;--fg:var(--text);--font:var(--sans)}
+html{scroll-behavior:smooth;background:var(--bg);font-size:var(--fs)}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+video{display:block}
+button,input,textarea{font-family:inherit;cursor:pointer}
+ul{list-style:none}
+::selection{background:var(--gold);color:var(--bg)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 2rem;background:linear-gradient(to bottom,rgba(18,14,12,0.8) 0%,transparent 100%);transition:background 500ms ease}
+nav.scrolled{background:var(--bg);border-bottom:1px solid rgba(197,160,89,0.15)}
+.nav-inner{max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-brand{display:flex;align-items:baseline;gap:0.75rem}
+.nav-logo{font-family:var(--serif);font-weight:400;font-size:1rem;color:var(--gold);letter-spacing:0.15em;line-height:1}
+.nav-logo-sub{font-family:var(--sans);font-size:0.4rem;letter-spacing:0.3em;color:var(--text-m);text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem;align-items:center}
+.nav-links a{font-family:var(--sans);font-size:0.55rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-m);transition:color 400ms,opacity 400ms;opacity:0.6}
+nav.scrolled .nav-links a{color:var(--text-m);opacity:0.7}
+.nav-links a:hover{color:var(--gold)!important;opacity:1!important}
+.nav-acceso{font-family:var(--sans);font-size:0.5rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);background:transparent;border:1px solid var(--gold);border-radius:999px;padding:0.55rem 1.5rem;transition:all 400ms}
+.nav-acceso:hover{background:var(--gold);color:var(--bg)}
+
+/* sections */
+.max-w{max-width:1440px;margin:0 auto;padding:0 3rem}
+.section{padding:7rem 0}
+.section-card{padding:7rem 0;background:var(--card)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity 700ms cubic-bezier(0.22,1,0.36,1),transform 700ms cubic-bezier(0.22,1,0.36,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.prehead{font-family:var(--sans);font-size:0.5rem;font-weight:500;text-transform:uppercase;letter-spacing:0.3em;color:var(--gold);margin-bottom:1.25rem}
+.h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.15;letter-spacing:0.01em;margin-bottom:1.5rem;color:var(--text)}
+.h2 em{font-style:italic;color:var(--gold)}
+.body-text{font-family:var(--sans);font-weight:300;font-size:0.8rem;color:var(--text-m);line-height:1.8;letter-spacing:0.02em}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(18,14,12,0.1) 0%,rgba(18,14,12,0.1) 30%,rgba(18,14,12,0.7) 70%,rgba(18,14,12,0.9) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;width:100%;padding:0 3rem 8vh}
+.hero-inner{max-width:1440px;margin:0 auto}
+.hero-tagline{font-family:var(--sans);font-size:0.55rem;font-weight:400;text-transform:uppercase;letter-spacing:0.35em;color:var(--gold);margin-bottom:1.5rem}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.5rem,5.5vw,5rem);line-height:1.05;color:var(--text);letter-spacing:0.02em;margin-bottom:1.5rem;max-width:750px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-family:var(--sans);font-weight:300;font-size:0.85rem;color:var(--text);opacity:0.45;max-width:440px;line-height:1.7;margin-bottom:2.5rem}
+.hero-cta{font-family:var(--sans);font-size:0.6rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);background:transparent;border:1px solid var(--gold);border-radius:999px;padding:0.7rem 2rem;transition:all 400ms}
+.hero-cta:hover{background:var(--gold);color:var(--bg)}
+
+/* arte de habitar */
+.arte-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.arte-text .h2{margin-bottom:1.5rem}
+.arte-text .body-text{margin-bottom:1.5rem}
+.arte-firma{font-family:var(--serif);font-style:italic;font-size:0.75rem;color:var(--gold);opacity:0.6;margin-top:2rem}
+.arte-img{position:relative;overflow:hidden}
+.arte-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.85)contrast(1.05)}
+
+/* portafolio scroll */
+.scroll-wrap{margin:3rem -3rem 0;padding:0 3rem}
+.scroll-bar{display:flex;align-items:center;justify-content:flex-end;gap:0.75rem;margin-bottom:1rem}
+.scroll-arrow{display:none;width:36px;height:36px;border-radius:50%;border:1px solid rgba(197,160,89,0.25);background:rgba(18,14,12,0.85);color:var(--gold);font-size:1.2rem;cursor:pointer;transition:all 200ms;line-height:1;padding:0;align-items:center;justify-content:center}
+.scroll-arrow:hover{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+@media(min-width:1024px){.scroll-arrow{display:inline-flex}}
+.scroll-h{display:flex;gap:2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1.5rem}
+.prop-card{min-width:75vw;scroll-snap-align:start;position:relative;overflow:hidden;flex-shrink:0}
+.prop-card img{width:100%;height:70vh;object-fit:cover;filter:brightness(0.7)contrast(1.05);transition:filter 600ms,transform 800ms}
+.prop-card:hover img{filter:brightness(0.5);transform:scale(1.02)}
+.prop-card .prop-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,14,12,0.85) 0%,transparent 60%);pointer-events:none}
+.prop-card .prop-info{position:absolute;bottom:0;left:0;right:0;padding:3rem;z-index:2}
+.prop-card .prop-tag{font-family:var(--sans);font-size:0.45rem;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:0.5rem}
+.prop-card h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:var(--text);margin-bottom:0.5rem}
+.prop-card .prop-loc{font-family:var(--sans);font-weight:300;font-size:0.65rem;color:var(--text);opacity:0.5;margin-bottom:0.75rem;letter-spacing:0.05em}
+.prop-card .prop-specs{display:flex;gap:1.5rem;opacity:0;transform:translateY(10px);transition:opacity 400ms,transform 400ms}
+.prop-card:hover .prop-specs{opacity:1;transform:translateY(0)}
+.prop-card .prop-specs span{font-family:var(--sans);font-weight:300;font-size:0.55rem;color:var(--text);opacity:0.6;letter-spacing:0.05em}
+.scroll-hint{font-family:var(--sans);font-size:0.5rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-dim)}
+.scroll-h::-webkit-scrollbar{height:2px}
+.scroll-h::-webkit-scrollbar-track{background:transparent}
+.scroll-h::-webkit-scrollbar-thumb{background:rgba(197,160,89,0.25);border-radius:1px}
+@-moz-document url-prefix(){.scroll-h{scrollbar-width:thin;scrollbar-color:rgba(197,160,89,0.25) transparent}}
+
+/* club */
+.club-section{background:var(--card2)}
+.club-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center}
+.club-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--sans);font-size:0.45rem;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);border:0.5px solid var(--gold);padding:0.3rem 0.75rem;margin-bottom:1.5rem}
+.club-services{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.club-service{display:flex;flex-direction:column;gap:0.25rem}
+.club-service .sv-icon{color:var(--gold);font-size:0.7rem;margin-bottom:0.25rem}
+.club-service h4{font-family:var(--serif);font-weight:400;font-size:0.8rem;color:var(--text);margin-bottom:0.25rem}
+.club-service p{font-family:var(--sans);font-weight:300;font-size:0.6rem;color:var(--text-m);line-height:1.4}
+.club-img{overflow:hidden}
+.club-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.8)contrast(1.05)}
+
+/* legado */
+.legado{width:100%;min-height:85vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.legado img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.7)}
+.legado .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,14,12,0.8) 0%,rgba(18,14,12,0.2) 60%,transparent 100%)}
+.legado-content{position:relative;z-index:1;padding:0 3rem 6vh;max-width:1440px;margin:0 auto;width:100%}
+.legado-content .prehead{color:var(--gold)}
+.legado-content .h2{max-width:700px}
+.legado-content .body-text{max-width:500px}
+
+/* contacto */
+.contact-section{background:var(--bg);padding:7rem 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:center}
+.contact-left .body-text{margin-bottom:1.5rem;max-width:380px}
+.contact-seal{display:flex;align-items:center;gap:0.75rem;margin-top:2rem}
+.contact-seal .seal-ring{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-seal .seal-ring svg{width:18px;height:18px;color:var(--gold)}
+.contact-seal span{font-family:var(--sans);font-weight:300;font-size:0.55rem;color:var(--text-m);line-height:1.4}
+.c-form{display:flex;flex-direction:column;gap:0}
+.c-form input{border:none;border-bottom:0.5px solid rgba(197,160,89,0.3);background:transparent;padding:1.25rem 0;font-family:var(--sans);font-weight:300;font-size:0.8rem;color:var(--text);outline:none;transition:border-color 400s;border-radius:0}
+.c-form input:focus{border-color:var(--gold)}
+.c-form input::placeholder{color:var(--text-m);opacity:0.35;font-weight:300;letter-spacing:0.02em}
+.btn-wax{background:transparent;border:1.5px solid var(--gold);border-radius:999px;padding:0.9rem 2.5rem;font-family:var(--sans);font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);width:fit-content;margin-top:2rem;transition:all 400ms;position:relative}
+.btn-wax::before{content:'●';font-size:0.4rem;margin-right:0.5rem;color:var(--gold)}
+.btn-wax:hover{background:var(--gold);color:var(--bg)}
+
+/* footer */
+footer{background:var(--card);padding:4rem 0 2rem;border-top:0.5px solid rgba(197,160,89,0.1)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem}
+footer h4{font-family:var(--serif);font-weight:400;font-size:0.75rem;color:var(--gold);margin-bottom:1rem}
+footer h4 .l{font-weight:300;color:var(--text-m)}
+footer p,footer a{font-family:var(--sans);font-weight:300;font-size:0.55rem;color:var(--text-dim);line-height:2;transition:color 300ms;display:block}
+footer a:hover{color:var(--gold)}
+.f-footer-brand{font-family:var(--serif);font-weight:400;font-size:0.85rem;color:var(--text);margin-bottom:0.25rem}
+.f-footer-sub{font-size:0.4rem!important;color:var(--text-dim)!important;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5rem}
+.f-footer-desc{font-size:0.5rem!important;color:var(--text-dim)!important;line-height:1.5}
+.footer-socials{display:flex;flex-direction:column;gap:0}
+.footer-bottom{margin-top:3rem;padding-top:2rem;border-top:0.5px solid rgba(197,160,89,0.08)}
+.footer-bottom p{font-size:0.4rem!important;color:var(--text-dim)!important;opacity:0.4;text-align:center;text-transform:uppercase;letter-spacing:0.08em;line-height:1.6}
+
+/* scrollbar restyle for webkit (horizontal) */
+.scroll-h::-webkit-scrollbar{height:0}
+
+/* accessibility */
+.access-btn{position:fixed;bottom:2.5rem;left:2.5rem;z-index:200;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);color:var(--fg);display:flex;align-items:center;justify-content:center;transition:all 300ms;opacity:0.5}
+.access-btn:hover{opacity:1;border-color:rgba(255,255,255,0.5)}
+.access-btn svg{width:24px;height:24px}
+.access-panel{position:fixed;bottom:calc(2.5rem + 64px);left:2.5rem;z-index:200;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);padding:1.5rem;width:260px;display:none;flex-direction:column;gap:0.75rem}
+.access-panel.open{display:flex}
+.access-panel h4{font-size:0.65rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;opacity:0.3;margin-bottom:0}
+.access-row{display:flex;gap:0.75rem;align-items:center}
+.access-row button{flex:1;padding:0.6rem 0;border:1px solid rgba(255,255,255,0.15);background:transparent;color:var(--fg);font-family:var(--font);font-size:0.75rem;font-weight:300;opacity:0.55;transition:all 300ms}
+.access-row button:hover{opacity:1;border-color:rgba(255,255,255,0.35)}
+.access-row button.active{border-color:rgba(255,255,255,0.5);opacity:0.9}
+.access-reset{display:block;width:100%;padding:0.65rem 0;border:1px solid rgba(255,255,255,0.08);background:transparent;color:var(--fg);font-family:var(--font);font-size:0.6rem;font-weight:300;opacity:0.25;margin-top:0.25rem;transition:all 300ms}
+.access-reset:hover{opacity:0.6}
+
+/* responsive */
+@media(max-width:1024px){
+.section{padding:6rem 0}
+.section-card{padding:6rem 0}
+.contact-section{padding:6rem 0}
+.arte-grid{grid-template-columns:1fr;gap:3rem}
+.arte-img{max-height:50vh}
+.club-grid{grid-template-columns:1fr;gap:3rem}
+.club-img{max-height:40vh}
+.club-section{padding:6rem 0}
+.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+.nav-links{gap:1.5rem}
+}
+
+@media(max-width:768px){
+.section{padding:5rem 0}
+.section-card{padding:5rem 0}
+.contact-section{padding:5rem 0}
+.max-w{padding:0 1.5rem}
+nav{padding:1rem 1.5rem}
+.nav-links a{font-size:0.45rem;letter-spacing:0.1em}
+.nav-links{gap:1rem}
+.nav-acceso{padding:0.4rem 1rem;font-size:0.45rem}
+.hero-content{padding:0 1.5rem 6vh}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem)}
+.hero-sub{font-size:0.8rem}
+.scroll-wrap{margin:2rem -1.5rem 0;padding:0 1.5rem}
+.prop-card{min-width:85vw}
+.prop-card img{height:55vh}
+.prop-card .prop-info{padding:2rem}
+.club-section{padding:5rem 0}
+.legado{min-height:70vh}
+.legado-content{padding:0 1.5rem 4vh}
+.contact-grid{grid-template-columns:1fr;gap:2rem}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:560px){
+.section{padding:4rem 0}
+.section-card{padding:4rem 0}
+.contact-section{padding:4rem 0}
+.nav-links a:not(.nav-acceso){display:none}
+.nav-links{gap:1rem}
+.nav-acceso{font-size:0.4rem;padding:0.35rem 0.85rem}
+.hero-content{padding:0 1.5rem 5vh}
+.hero h1{font-size:clamp(1.8rem,7vw,2.8rem)}
+.hero-sub{font-size:0.75rem}
+.arte-grid{gap:2rem}
+.prop-card{min-width:92vw}
+.prop-card img{height:45vh}
+.prop-card h3{font-size:1.1rem}
+.club-services{grid-template-columns:1fr}
+.club-section{padding:4rem 0}
+.legado{min-height:60vh}
+.legado-content .h2{font-size:clamp(1.5rem,5vw,2.2rem)}
+.btn-wax{width:100%;justify-content:center;display:flex}
+footer{padding:3rem 0 1.5rem}
+.access-btn{bottom:1.5rem;left:1.5rem;width:48px;height:48px}
+.access-panel{bottom:calc(1.5rem + 60px);left:1.5rem}
+}
+
+@media(max-width:480px){
+.section{padding:3rem 0}
+.section-card{padding:3rem 0}
+.contact-section{padding:3rem 0}
+.max-w{padding:0 1.25rem}
+.hero-content{padding:0 1.25rem 5vh}
+.club-section{padding:3rem 0}
+.legado{min-height:50vh}
+.footer-grid{grid-template-columns:1fr;gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <span class="nav-logo">B R</span>
+      <span class="nav-logo-sub">Brown & Rivera</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#residencias">Residencias</a></li>
+      <li><a href="#club">El Club</a></li>
+      <li><a href="#legado">Legado</a></li>
+      <li><a href="#contacto" class="nav-acceso">Acceso Privado</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80">
+    <source src="https://videos.pexels.com/video-files/4284263/4284263-hd_1920_1080_30fps.mp4" type="video/mp4">
+  </video>
+  <img class="fallback" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80" alt="" loading="eager">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <p class="hero-tagline rv">Brown & Rivera · Recepción Privada</p>
+      <h1 class="rv">Donde el silencio<br>se viste de <em>oro</em>.</h1>
+      <p class="hero-sub rv">Un portafolio de propiedades seleccionadas para quienes entienden que el verdadero lujo no se anuncia. Se habita.</p>
+      <div class="rv">
+        <a href="#residencias" class="hero-cta">Descubrir las residencias</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTE DE HABITAR -->
+<section class="section" id="arte">
+  <div class="max-w">
+    <div class="arte-grid">
+      <div class="arte-text rv">
+        <p class="prehead">El Arte de Habitar</p>
+        <h2 class="h2">El lujo no se posee.<br>Se <em>vive</em>.</h2>
+        <p class="body-text">Despertar en una de nuestras propiedades es experimentar el silencio de una mañana sin prisas, la luz dorada filtrándose a través de cortinas de lino, el sonido del viento en una terraza privada que mira al horizonte. No curamos inmuebles. Curamos momentos que valen la pena ser vividos.</p>
+        <p class="body-text">Cada residencia es seleccionada por su capacidad de transformar lo cotidiano en extraordinario. Porque el lujo verdadero no se mide en metros cuadrados, sino en la calidad del tiempo que transcurre entre sus paredes.</p>
+        <p class="arte-firma">— La curaduría Brown & Rivera</p>
+      </div>
+      <div class="arte-img rv">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Interior de residencia de lujo" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO HORIZONTAL -->
+<section class="section-card" id="residencias">
+  <div class="max-w">
+    <p class="prehead rv">Colección Privada</p>
+    <h2 class="h2 rv">Residencias que<br>trascienden el <em>tiempo</em>.</h2>
+  </div>
+  <div class="scroll-wrap">
+    <div class="scroll-bar">
+      <button class="scroll-arrow left" aria-label="Anterior">‹</button>
+      <p class="scroll-hint">⟶ Deslice para explorar</p>
+      <button class="scroll-arrow right" aria-label="Siguiente">›</button>
+    </div>
+    <div class="scroll-h">
+      <div class="prop-card rv">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80" alt="Villa Mare" loading="lazy">
+        <div class="prop-overlay"></div>
+        <div class="prop-info">
+          <span class="prop-tag">En Exclusiva</span>
+          <h3>Villa Mare</h3>
+          <span class="prop-loc">Zapallar · V Región</span>
+          <div class="prop-specs">
+            <span>980 m²</span>
+            <span>6 suites</span>
+            <span>4.200 m² terreno</span>
+            <span>USD 6.2M</span>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card rv">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=80" alt="Penthouse Alto" loading="lazy">
+        <div class="prop-overlay"></div>
+        <div class="prop-info">
+          <span class="prop-tag">Próximamente</span>
+          <h3>Penthouse Alto</h3>
+          <span class="prop-loc">Vitacura · Santiago</span>
+          <div class="prop-specs">
+            <span>680 m²</span>
+            <span>4 suites</span>
+            <span>Terraza 320 m²</span>
+            <span>USD 4.2M</span>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card rv">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80" alt="Reserva Los Dominicos" loading="lazy">
+        <div class="prop-overlay"></div>
+        <div class="prop-info">
+          <span class="prop-tag">En Exclusiva</span>
+          <h3>Reserva Los Dominicos</h3>
+          <span class="prop-loc">Las Condes · Región Metropolitana</span>
+          <div class="prop-specs">
+            <span>980 m²</span>
+            <span>6 suites</span>
+            <span>4.200 m² terreno</span>
+            <span>USD 6.2M</span>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card rv">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1400&q=80" alt="Villa Umbria" loading="lazy">
+        <div class="prop-overlay"></div>
+        <div class="prop-info">
+          <span class="prop-tag">Off-Market</span>
+          <h3>Villa Umbría</h3>
+          <span class="prop-loc">Lo Barnechea · Santiago</span>
+          <div class="prop-specs">
+            <span>1.200 m²</span>
+            <span>5 suites</span>
+            <span>6.500 m² terreno</span>
+            <span>Bajo Consulta</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLUB DE INVERSORES -->
+<section class="club-section section" id="club">
+  <div class="max-w">
+    <div class="club-grid">
+      <div class="rv">
+        <span class="club-badge">Acceso Restringido</span>
+        <p class="prehead">El Club de Inversores</p>
+        <h2 class="h2">No todo se publica.<br>Lo mejor se <em>guarda</em>.</h2>
+        <p class="body-text">Antes de que una propiedad llegue al mercado abierto, nuestros miembros del Club tienen acceso preferencial. Asesoría patrimonial, negociación confidencial y un equipo dedicado a encontrar lo que aún no existe en los portales públicos.</p>
+        <div class="club-services">
+          <div class="club-service">
+            <span class="sv-icon">—</span>
+            <h4>Consejería Privada</h4>
+            <p>Asesoría uno a uno con nuestros curadores para definir el perfil de propiedad ideal.</p>
+          </div>
+          <div class="club-service">
+            <span class="sv-icon">—</span>
+            <h4>Acceso Off-Market</h4>
+            <p>Propiedades que nunca aparecen en portales públicos ni en redes sociales.</p>
+          </div>
+          <div class="club-service">
+            <span class="sv-icon">—</span>
+            <h4>Gestión Confidencial</h4>
+            <p>NDA legal desde el primer contacto. Su identidad protegida en cada etapa.</p>
+          </div>
+          <div class="club-service">
+            <span class="sv-icon">—</span>
+            <h4>Due Diligence</h4>
+            <p>Evaluación legal, tributaria y estructural completa de cada propiedad.</p>
+          </div>
+        </div>
+      </div>
+      <div class="club-img rv">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80" alt="Club privado" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGADO -->
+<section class="legado" id="legado">
+  <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80" alt="Atardecer en viñedo" loading="lazy">
+  <div class="overlay"></div>
+  <div class="legado-content rv">
+    <p class="prehead">El Legado</p>
+    <h2 class="h2">Una propiedad no es una inversión.<br>Es la dirección de su <em>historia</em>.</h2>
+    <p class="body-text">Cada residencia que entregamos es el escenario donde escribirán los próximos capítulos de su vida. Porque al final, lo único que realmente importa es con quién lo celebra.</p>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section" id="contacto">
+  <div class="max-w">
+    <p class="prehead rv">Recepción Privada</p>
+    <h2 class="h2 rv">Agende una visita<br>sin <em>seguimiento</em>.</h2>
+    <div class="contact-grid">
+      <div class="contact-left rv">
+        <p class="body-text">Ningún vendedor lo llamará. Sin pressure. Sin newsletters. Solo un dossier personalizado con las propiedades que realmente se alinean a su forma de entender la vida.</p>
+        <div class="contact-seal">
+          <div class="seal-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span>Comunicación cifrada · Protegido por confidencialidad legal desde el primer mensaje</span>
+        </div>
+      </div>
+      <form class="c-form rv">
+        <input type="text" placeholder="Nombre completo" required aria-label="Nombre completo">
+        <input type="email" placeholder="Correo electrónico" required aria-label="Correo electrónico">
+        <input type="tel" placeholder="Teléfono (opcional)" aria-label="Teléfono">
+        <button type="submit" class="btn-wax">Solicitar Dossier Privado</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="max-w">
+    <div class="footer-grid">
+      <div>
+        <div class="f-footer-brand">Brown & Rivera</div>
+        <span class="f-footer-sub">Real Estate · Desde 1998</span>
+        <p class="f-footer-desc">Propiedades exclusivas. Curaduría privada. Recepción por agenda.</p>
+      </div>
+      <div>
+        <h4>Oficinas</h4>
+        <p>Santiago · El Golf 120, Piso 22</p>
+        <p>Nueva York · 515 Madison Ave, Suite 12</p>
+        <p>Madrid · Serrano 45, 4° Izq.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="tel:+56993217800">+56 9 9321 7800</a></p>
+        <p><a href="mailto:contacto@brownrivera.cl">contacto@brownrivera.cl</a></p>
+        <p style="margin-top:0.5rem;opacity:0.4">10:00 – 18:00 · Lun–Vie</p>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <div class="footer-socials">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">LinkedIn</a>
+          <a href="#" style="margin-top:1rem">Política de Privacidad</a>
+          <a href="#">Aviso Legal</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Brown & Rivera Real Estate · Todos los derechos reservados</p>
+      <p>Imágenes referenciales · Precios sujetos a disponibilidad</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ACCESSIBILITY -->
+<div class="access-btn" id="accessBtn" role="button" tabindex="0" aria-label="Accesibilidad" title="Accesibilidad">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/><path d="M7 12h3l1 8h2l1-8h3"/><path d="M5.5 9.5c1.5-1 4-1.5 6.5-1.5s5 .5 6.5 1.5"/></svg>
+</div>
+<div class="access-panel" id="accessPanel">
+  <h4>Tamaño</h4>
+  <div class="access-row">
+    <button data-action="fs-down" title="Reducir texto">A−</button>
+    <button data-action="fs-reset" title="Restablecer texto">A·</button>
+    <button data-action="fs-up" title="Aumentar texto">A+</button>
+  </div>
+  <button class="access-reset" data-action="reset">Restablecer todo</button>
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+function onScroll(){
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+}
+onScroll();
+window.addEventListener('scroll', onScroll, {passive:true});
+
+const rvs = document.querySelectorAll('.rv');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if(e.isIntersecting){
+      const d = parseInt(e.target.dataset.d) || 0;
+      setTimeout(() => e.target.classList.add('in'), d * 130);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold:0.06 });
+rvs.forEach((el, i) => { el.dataset.d = i % 4; obs.observe(el); });
+
+// carrusel flechas
+const scrollH = document.querySelector('.scroll-h');
+document.querySelectorAll('.scroll-arrow').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dir = btn.classList.contains('left') ? -1 : 1;
+    scrollH.scrollBy({ left: dir * scrollH.clientWidth * 0.8, behavior: 'smooth' });
+  });
+});
+/* accessibility */
+const accessBtn = document.getElementById('accessBtn');
+const accessPanel = document.getElementById('accessPanel');
+let fs = 100;
+
+accessBtn.addEventListener('click', () => accessPanel.classList.toggle('open'));
+
+document.addEventListener('click', (e) => {
+  if (!accessBtn.contains(e.target) && !accessPanel.contains(e.target)) {
+    accessPanel.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.access-row button, .access-reset').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const a = btn.dataset.action;
+    if (a === 'fs-up') { fs = Math.min(fs + 10, 140); document.documentElement.style.fontSize = fs + '%'; }
+    else if (a === 'fs-down') { fs = Math.max(fs - 10, 70); document.documentElement.style.fontSize = fs + '%'; }
+    else if (a === 'fs-reset') { fs = 100; document.documentElement.style.fontSize = ''; }
+    else if (a === 'reset') {
+      fs = 100; document.documentElement.style.fontSize = '';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

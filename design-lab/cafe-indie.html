@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>café de la tierra — especialidad con carácter de barrio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/motion@12.4.3/dist/motion.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FDFBF7;--accent:#C86B45;--accent2:#4A5D4E;--text:#2C2523;--text-m:#8A7D78;--border:#E6DED5;--serif:'Fraunces',serif;--sans:'DM Sans',sans-serif;--fg:var(--text);--font:var(--sans)}
+html{scroll-behavior:smooth;font-size:var(--fs)}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button,input,a{cursor:pointer;transition:all 300ms cubic-bezier(0.22,1,0.36,1)}
+ul{list-style:none}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--serif);font-weight:300;font-style:italic;font-size:1.25rem;letter-spacing:-0.02em;color:var(--text)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:0.8rem;font-weight:400;color:var(--text-m);transition:color 300ms}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{border:1px solid var(--accent);color:var(--accent);padding:0.5rem 1.25rem;font-size:0.75rem;font-family:var(--sans);font-weight:400;background:transparent;letter-spacing:0.03em}
+.nav-cta:hover{background:var(--accent);color:var(--bg)}
+
+/* sections */
+section{position:relative;z-index:1}
+.max-w{max-width:1200px;margin:0 auto;padding:0 2rem}
+.max-w-narrow{max-width:740px;margin:0 auto}
+.prehead{font-family:var(--sans);font-size:0.7rem;font-weight:400;text-transform:uppercase;letter-spacing:0.2em;color:var(--text-m);margin-bottom:1rem}
+.h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;margin-bottom:2rem}
+.h2 strong{font-weight:600}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 600ms cubic-bezier(0.22,1,0.36,1),transform 600ms cubic-bezier(0.22,1,0.36,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(44,37,35,0.6) 0%,rgba(44,37,35,0.05) 60%,transparent 100%)}
+.hero-content{position:relative;z-index:1;padding:8rem 2rem 5rem;max-width:1200px;margin:0 auto;width:100%}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,6vw,5rem);line-height:1.0;letter-spacing:-0.03em;color:#fff;margin-bottom:1.5rem;max-width:700px}
+.hero-sub{font-family:var(--sans);font-weight:300;font-size:1.05rem;color:rgba(255,255,255,0.7);max-width:460px;line-height:1.6;margin-bottom:2.5rem}
+.btn-accent{border:none;background:var(--accent);color:var(--bg);font-family:var(--sans);font-size:0.85rem;font-weight:400;padding:0.9rem 2rem;letter-spacing:0.02em;border:1px solid var(--accent)}
+.btn-accent:hover{background:transparent;color:#fff;border-color:rgba(255,255,255,0.5)}
+.hero-anchor{display:block;font-family:var(--serif);font-style:italic;font-size:0.8rem;color:rgba(255,255,255,0.3);margin-top:1rem}
+
+/* manifesto */
+.manifesto{padding:10rem 0}
+.manifesto .grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.manifesto-text{max-width:500px}
+.manifesto-text .big-num{font-family:var(--serif);font-weight:600;font-size:clamp(4rem,10vw,8rem);line-height:1;color:var(--text);opacity:0.06;margin-bottom:-0.3em;user-select:none}
+.manifesto-text p{font-family:var(--sans);font-weight:300;font-size:0.95rem;color:var(--text-m);line-height:1.7}
+.manifesto-img{width:100%;aspect-ratio:3/4;overflow:hidden}
+.manifesto-img img{width:100%;height:100%;object-fit:cover}
+
+/* menu */
+.menu{padding:8rem 0;border-top:1px solid var(--border)}
+.menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:4rem}
+.m-card{display:flex;flex-direction:column;gap:1rem}
+.m-card-img{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--border)}
+.m-card-img img{width:100%;height:100%;object-fit:cover}
+.m-card h3{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--text);letter-spacing:-0.01em}
+.m-card .price{font-family:var(--sans);font-weight:400;font-size:0.8rem;color:var(--accent)}
+.m-card p{font-family:var(--sans);font-weight:300;font-size:0.8rem;color:var(--text-m);line-height:1.5}
+.menu-link{display:inline-flex;align-items:center;gap:0.5rem;margin-top:3rem;font-family:var(--serif);font-style:italic;font-size:0.95rem;color:var(--accent);border-bottom:1px solid transparent;padding-bottom:0.15em}
+.menu-link:hover{border-color:var(--accent)}
+
+/* gallery */
+.gallery{padding:8rem 0;border-top:1px solid var(--border)}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}
+.gal-tall{grid-row:span 2;aspect-ratio:auto;min-height:500px;overflow:hidden}
+.gal-tall img,.gal-wide img{width:100%;height:100%;object-fit:cover}
+.gal-wide{grid-column:span 2;aspect-ratio:16/7;overflow:hidden}
+
+/* social proof */
+.reviews{padding:8rem 0;border-top:1px solid var(--border)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:4rem}
+.rev-card{display:flex;flex-direction:column;gap:1rem}
+.rev-text{font-family:var(--serif);font-weight:300;font-style:italic;font-size:1rem;line-height:1.5;color:var(--text);quotes:"\201c""\201d""\2018""\2019"}
+.rev-text::before{content:"\201c"}
+.rev-text::after{content:"\201d"}
+.rev-author{font-family:var(--sans);font-size:0.8rem;font-weight:400;color:var(--text-m)}
+.rev-author span{color:var(--accent2)}
+
+/* footer */
+footer{padding:5rem 0 3rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
+.footer-col h4{font-family:var(--serif);font-weight:600;font-size:0.9rem;margin-bottom:1rem;letter-spacing:-0.01em}
+.footer-col p,.footer-col a{font-family:var(--sans);font-weight:300;font-size:0.8rem;color:var(--text-m);line-height:1.7}
+.footer-col a:hover{color:var(--text)}
+.horario{margin-top:0.5rem;font-style:italic}
+.footer-socials{display:flex;gap:1rem;margin-top:1rem}
+.footer-socials svg{width:20px;height:20px;color:var(--text-m);transition:color 300ms}
+.footer-socials a:hover svg{color:var(--accent)}
+.news-form{display:flex;gap:0;margin-top:1rem;width:100%}
+.news-form input{flex:1;padding:0.75rem 1rem;border:1px solid var(--border);background:transparent;font-family:var(--sans);font-size:0.8rem;color:var(--text);outline:none;transition:border 300ms}
+.news-form input:focus{border-color:var(--accent)}
+.news-form input::placeholder{color:var(--text-m);font-style:italic}
+.news-form button{padding:0.75rem 1.25rem;border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-family:var(--sans);font-size:0.75rem;letter-spacing:0.03em;border-left:none}
+.news-form button:hover{background:transparent;color:var(--accent)}
+.footer-bottom{text-align:center;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border)}
+.footer-bottom p{font-family:var(--sans);font-size:0.65rem;color:var(--text-m)}
+.footer-map{width:100%;height:120px;margin-top:0.75rem;filter:grayscale(1)sepia(0.2);border:none}
+
+/* accessibility */
+.access-btn{position:fixed;bottom:2.5rem;left:2.5rem;z-index:200;width:52px;height:52px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;transition:all 300ms;opacity:0.9}
+.access-btn:hover{opacity:1}
+.access-btn svg{width:24px;height:24px}
+.access-panel{position:fixed;bottom:calc(2.5rem + 64px);left:2.5rem;z-index:200;background:var(--bg);border:1px solid var(--border);padding:1.5rem;width:260px;display:none;flex-direction:column;gap:0.75rem}
+.access-panel.open{display:flex}
+.access-panel h4{font-size:0.65rem;font-weight:400;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-m);margin-bottom:0}
+.access-row{display:flex;gap:0.75rem;align-items:center}
+.access-row button{flex:1;padding:0.6rem 0;border:1px solid var(--border);background:transparent;color:var(--text);font-family:var(--font);font-size:0.75rem;font-weight:400;opacity:1;transition:all 300ms}
+.access-row button:hover{border-color:var(--accent);color:var(--accent)}
+.access-row button.active{border-color:var(--accent);color:var(--accent)}
+.access-reset{display:block;width:100%;padding:0.65rem 0;border:1px solid var(--border);background:transparent;color:var(--text-m);font-family:var(--font);font-size:0.6rem;font-weight:400;opacity:0.6;margin-top:0.25rem;transition:all 300ms}
+.access-reset:hover{opacity:1;color:var(--accent)}
+
+/* responsive */
+@media(max-width:1024px){
+.section{padding:6rem 0}
+.menu-grid{grid-template-columns:repeat(2,1fr)}
+.rev-grid{grid-template-columns:1fr;gap:2rem;max-width:500px}
+}
+
+@media(max-width:768px){
+.section{padding:5rem 0}
+nav{padding:1rem 1.5rem}
+.nav-links{gap:1.25rem}
+.nav-links a{font-size:0.7rem}
+.max-w{padding:0 1.5rem}
+.hero-content{padding:6rem 1.5rem 4rem}
+.hero h1{font-size:clamp(2.2rem,8vw,3.5rem)}
+.manifesto{padding:5rem 0}
+.manifesto .grid{grid-template-columns:1fr;gap:3rem}
+.manifesto-img{aspect-ratio:16/9}
+.menu{padding:5rem 0}
+.gallery{padding:5rem 0}
+.gal-grid{grid-template-columns:1fr}
+.gal-tall{min-height:300px;grid-row:span 1}
+.gal-wide{grid-column:span 1;aspect-ratio:16/9}
+.reviews{padding:5rem 0}
+footer{padding:4rem 0 2rem}
+.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+
+@media(max-width:560px){
+nav{padding:0.75rem 1rem}
+.nav-links{display:none}
+.max-w{padding:0 1.25rem}
+.hero-content{padding:5rem 1.25rem 3rem}
+.hero h1{font-size:clamp(2rem,10vw,3rem)}
+.hero-sub{font-size:0.85rem}
+.menu-grid{grid-template-columns:1fr;max-width:380px}
+.manifesto{padding:4rem 0}
+.menu{padding:4rem 0}
+.gallery{padding:4rem 0}
+.reviews{padding:4rem 0}
+footer{padding:3rem 0 1.5rem}
+.access-btn{bottom:1.5rem;left:1.5rem;width:48px;height:48px}
+.access-panel{bottom:calc(1.5rem + 60px);left:1.5rem}
+}
+
+@media(max-width:480px){
+nav{padding:0.75rem 1rem}
+.max-w{padding:0 1rem}
+.hero-content{padding:4rem 1rem 2.5rem}
+.btn-accent{width:100%;justify-content:center;display:flex}
+.footer-grid{grid-template-columns:1fr;gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">café de la tierra</a>
+  <ul class="nav-links">
+    <li><a href="#origen">granos</a></li>
+    <li><a href="#menu">menú</a></li>
+    <li><a href="#visitanos">visítanos</a></li>
+    <li><a href="#club" class="nav-cta">club ></a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80" alt="Barra de café con luz natural" loading="eager">
+    <div class="overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div>
+      <h1 class="rv">especialidad con<br>carácter de barrio.</h1>
+      <p class="hero-sub rv">Granos de origen. Tueste propio. Un espacio para quienes buscan sabor sin pretensiones.</p>
+      <div class="rv">
+        <a href="#visitanos" class="btn-accent">ven a conocernos</a>
+        <span class="hero-anchor">primer café por cuenta de la casa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFIESTO -->
+<section class="manifesto" id="origen">
+  <div class="max-w">
+    <div class="grid">
+      <div class="manifesto-text rv">
+        <p class="prehead">origen</p>
+        <div class="big-num">15 kg</div>
+        <h2 class="h2">de la finca a tu taza.<br>sin intermediarios.</h2>
+        <p>Trabajamos directo con pequeños productores de América Latina. Cada lote se tuesta en lotes de no más de 15 kg, se cata, se aprueba y se sirve. No tenemos blends de relleno. Tenemos café con historia.</p>
+      </div>
+      <div class="manifesto-img rv">
+        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=80" alt="Costales de café con etiquetas" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENÚ -->
+<section class="menu" id="menu">
+  <div class="max-w">
+    <p class="prehead rv">lo nuestro</p>
+    <h2 class="h2 rv">cuatro razones para <strong>quedarse.</strong></h2>
+    <div class="menu-grid">
+      <div class="m-card rv">
+        <div class="m-card-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="Filtro V60" loading="lazy"></div>
+        <h3>Filtro del día</h3>
+        <span class="price">$55</span>
+        <p>Origen único, preparado en V60 o Kalita. Pregunta por el lote actual.</p>
+      </div>
+      <div class="m-card rv">
+        <div class="m-card-img"><img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400&q=80" alt="Espresso en taza blanca" loading="lazy"></div>
+        <h3>Espresso tonalteco</h3>
+        <span class="price">$45</span>
+        <p>Notas a chocolate amargo y naranja. Cuerpo sedoso.</p>
+      </div>
+      <div class="m-card rv">
+        <div class="m-card-img"><img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400&q=80" alt="Matcha latte" loading="lazy"></div>
+        <h3>Matcha latte</h3>
+        <span class="price">$65</span>
+        <p>Matcha ceremonial Japón. No endulzado. Servicio lento.</p>
+      </div>
+      <div class="m-card rv">
+        <div class="m-card-img"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Pan de masa madre" loading="lazy"></div>
+        <h3>Pan de masa madre</h3>
+        <span class="price">$40</span>
+        <p>Horneado diario. Harina orgánica de la VI región.</p>
+      </div>
+    </div>
+    <a href="#" class="menu-link rv">ver menú completo →</a>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="gallery">
+  <div class="max-w">
+    <p class="prehead rv">el espacio</p>
+    <h2 class="h2 rv">donde el café se vuelve experiencia.</h2>
+    <div class="gal-grid">
+      <div class="gal-tall rv"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&q=80" alt="Interior de la cafetería con mesas de madera" loading="lazy"></div>
+      <div class="gal-tall rv"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=80" alt="Barista preparando espresso" loading="lazy"></div>
+      <div class="gal-wide rv"><img src="https://images.unsplash.com/photo-1442975631115-c4f7b05b8a2c?w=1200&q=80" alt="Fachada del local con letrero" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="reviews">
+  <div class="max-w">
+    <p class="prehead rv">la calle habla</p>
+    <h2 class="h2 rv">lo que dicen quienes ya vinieron.</h2>
+    <div class="rev-grid">
+      <div class="rev-card rv">
+        <p class="rev-text">El filtro de la casa me recordó al que tomaba en Valdivia. Aquí hay respeto por el grano.</p>
+        <p class="rev-author"><span>M</span>ariana R.</p>
+      </div>
+      <div class="rev-card rv">
+        <p class="rev-text">Trabajo aquí todas las mañanas. El matcha es el mejor de la colonia. Y el pan... dios mío el pan.</p>
+        <p class="rev-author"><span>D</span>iego Á.</p>
+      </div>
+      <div class="rev-card rv">
+        <p class="rev-text">No es una cafetería instagrameable. Es una cafetería de verdad. Se siente.</p>
+        <p class="rev-author"><span>L</span>ucía H.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="visitanos">
+  <div class="max-w">
+    <div class="footer-grid">
+      <div class="footer-col rv">
+        <h4>visítanos</h4>
+        <p>av. Italia 1243<br>Barrio Italia, Santiago</p>
+        <p class="horario">lun–sáb 8am–8pm<br>dom 9am–4pm</p>
+        <iframe class="footer-map" src="https://www.openstreetmap.org/export/embed.html?bbox=-70.636%2C-33.461%2C-70.626%2C-33.456&layer=mapnik&marker=-33.4585%2C-70.631" loading="lazy" title="Ubicación del café"></iframe>
+      </div>
+      <div class="footer-col rv" id="club">
+        <h4>el club de la taza</h4>
+        <p>Sé el primero en enterarte de nuevos lotes, catas y eventos. Sin spam. Solo café.</p>
+        <form class="news-form">
+          <input type="email" placeholder="tu correo" required aria-label="Correo electrónico">
+          <button type="submit">unirme</button>
+        </form>
+      </div>
+      <div class="footer-col rv">
+        <h4>conecta</h4>
+        <p><a href="https://wa.me/521234567890" target="_blank" rel="noopener">WhatsApp</a></p>
+        <div class="footer-socials">
+          <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 café de la tierra · hecho con granos de especialidad</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ACCESSIBILITY -->
+<div class="access-btn" id="accessBtn" role="button" tabindex="0" aria-label="Accesibilidad" title="Accesibilidad">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/><path d="M7 12h3l1 8h2l1-8h3"/><path d="M5.5 9.5c1.5-1 4-1.5 6.5-1.5s5 .5 6.5 1.5"/></svg>
+</div>
+<div class="access-panel" id="accessPanel">
+  <h4>Tamaño</h4>
+  <div class="access-row">
+    <button data-action="fs-down" title="Reducir texto">A−</button>
+    <button data-action="fs-reset" title="Restablecer texto">A·</button>
+    <button data-action="fs-up" title="Aumentar texto">A+</button>
+  </div>
+  <button class="access-reset" data-action="reset">Restablecer todo</button>
+</div>
+
+<script>
+const { animate, scroll, inView } = Motion;
+
+const rvs = document.querySelectorAll('.rv');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      const delay = parseInt(e.target.dataset.d) || 0;
+      setTimeout(() => e.target.classList.add('in'), delay * 120);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+rvs.forEach((el, i) => { el.dataset.d = i % 4; obs.observe(el); });
+/* accessibility */
+const accessBtn = document.getElementById('accessBtn');
+const accessPanel = document.getElementById('accessPanel');
+let fs = 100;
+
+accessBtn.addEventListener('click', () => accessPanel.classList.toggle('open'));
+
+document.addEventListener('click', (e) => {
+  if (!accessBtn.contains(e.target) && !accessPanel.contains(e.target)) {
+    accessPanel.classList.remove('open');
+  }
+});
+
+document.querySelectorAll('.access-row button, .access-reset').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const a = btn.dataset.action;
+    if (a === 'fs-up') { fs = Math.min(fs + 10, 140); document.documentElement.style.fontSize = fs + '%'; }
+    else if (a === 'fs-down') { fs = Math.max(fs - 10, 70); document.documentElement.style.fontSize = fs + '%'; }
+    else if (a === 'fs-reset') { fs = 100; document.documentElement.style.fontSize = ''; }
+    else if (a === 'reset') {
+      fs = 100; document.documentElement.style.fontSize = '';
+    }
+  });
+});
+</script>
+</body>
+</html>
